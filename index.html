@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101329">
+  <title>Trivia Master</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" data-home><span class="brand-mark">✦</span><span>TRIVIA<span class="brand-accent">MASTER</span></span></a>
+    <nav class="top-nav"><button class="nav-link active" data-view="home">Inicio</button><button class="nav-link" data-view="explore">Explorar</button><button class="nav-link" data-view="progress">Mi progreso</button></nav>
+    <div class="top-stats"><span class="pill"><span>🪙</span><b id="header-coins">0</b></span><span class="avatar" id="header-level">1</span></div>
+  </header>
+
+  <main class="container">
+    <section id="home-view" class="view active">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> TU PRÓXIMO DESAFÍO TE ESPERA</div>
+          <h1>¿Cuánto sabes<br>de <span class="gradient-text">verdad?</span></h1>
+          <p>Demuestra lo que sabes, supera tus récords y conviértete en una leyenda del conocimiento.</p>
+          <button class="btn btn-primary btn-large" id="quick-play">Jugar ahora <span>→</span></button>
+          <div class="hero-note"><span>⚡</span> 100% individual · Guarda tu progreso</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="floating-card card-top"><span>🧠</span><b>MENTE ACTIVA</b><small>Desafía tus límites</small></div>
+          <div class="brain-core"><div class="core-glow"></div><span>✦</span></div>
+          <div class="floating-card card-bottom"><span>🏆</span><b>¡NUEVO RÉCORD!</b><small>Tu mejor versión</small></div>
+          <div class="spark spark-one">✦</div><div class="spark spark-two">✧</div>
+        </div>
+      </div>
+      <div class="section-heading"><div><span class="eyebrow">ELIGE TU EXPERIENCIA</span><h2>Modos de juego</h2></div><span class="muted">Encuentra tu desafío</span></div>
+      <div class="mode-grid">
+        <button class="mode-card featured" data-mode="classic"><span class="mode-icon">🎯</span><span class="mode-tag">RECOMENDADO</span><h3>Clásico</h3><p>10 preguntas para poner a prueba tus conocimientos.</p><span class="mode-arrow">Jugar →</span></button>
+        <button class="mode-card" data-mode="timed"><span class="mode-icon">⏱️</span><h3>Contrarreloj</h3><p>Responde todo lo que puedas en 60 segundos.</p><span class="mode-arrow">Jugar →</span></button>
+        <button class="mode-card" data-mode="survival"><span class="mode-icon">❤️</span><h3>Supervivencia</h3><p>Tienes 3 vidas. ¿Cuánto lograrás avanzar?</p><span class="mode-arrow">Jugar →</span></button>
+        <button class="mode-card" data-mode="infinite"><span class="mode-icon">♾️</span><h3>Infinito</h3><p>Juega sin límite y acumula la mayor puntuación.</p><span class="mode-arrow">Jugar →</span></button>
+        <button class="mode-card" data-mode="daily"><span class="mode-icon">📅</span><h3>Desafío diario</h3><p>Una selección especial de 10 preguntas al día.</p><span class="mode-arrow">Jugar →</span></button>
+      </div>
+      <div class="section-heading category-heading"><div><span class="eyebrow">HAY MUCHO POR DESCUBRIR</span><h2>Explora categorías</h2></div><button class="text-button" data-view="explore">Ver todas →</button></div>
+      <div id="home-categories" class="category-grid"></div>
+    </section>
+
+    <section id="explore-view" class="view">
+      <div class="page-heading"><span class="eyebrow">AMPLÍA TUS CONOCIMIENTOS</span><h1>Explora <span class="gradient-text">categorías</span></h1><p>Elige un tema y demuestra cuánto sabes.</p></div>
+      <div id="explore-categories" class="category-grid category-grid-large"></div>
+      <div class="custom-panel"><div><span class="eyebrow">PERSONALIZA TU EXPERIENCIA</span><h2>¿Quieres agregar preguntas?</h2><p>Puedes crear tus propias preguntas y guardarlas en este navegador.</p></div><button class="btn btn-secondary" id="open-editor">＋ Crear pregunta</button></div>
+    </section>
+
+    <section id="progress-view" class="view">
+      <div class="page-heading"><span class="eyebrow">TU CAMINO AL CONOCIMIENTO</span><h1>Mi <span class="gradient-text">progreso</span></h1><p>Cada partida cuenta. Sigue superándote.</p></div>
+      <div class="profile-panel">
+        <div class="profile-avatar">✦</div><div class="profile-info"><span class="eyebrow">JUGADOR</span><h2>Explorador del saber</h2><p id="level-label">Nivel 1 · Principiante</p><div class="xp-track"><span id="xp-bar"></span></div><small id="xp-label">0 / 100 XP para el siguiente nivel</small></div>
+        <div class="profile-level"><strong id="big-level">1</strong><span>NIVEL</span></div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><span>⭐</span><strong id="stat-xp">0</strong><small>Experiencia total</small></div>
+        <div class="stat-card"><span>🪙</span><strong id="stat-coins">0</strong><small>Monedas</small></div>
+        <div class="stat-card"><span>🎮</span><strong id="stat-games">0</strong><small>Partidas jugadas</small></div>
+        <div class="stat-card"><span>🎯</span><strong id="stat-accuracy">0%</strong><small>Precisión</small></div>
+      </div>
+      <div class="progress-columns"><div class="panel"><div class="panel-heading"><h3>🏅 Logros</h3><span class="muted" id="achievement-count">0 desbloqueados</span></div><div id="achievements" class="achievement-list"></div></div><div class="panel"><div class="panel-heading"><h3>📈 Últimas partidas</h3></div><div id="history" class="history-list"></div></div></div>
+      <button class="text-button danger-text" id="reset-progress">Reiniciar todo el progreso</button>
+    </section>
+
+    <section id="game-view" class="view">
+      <div class="game-top"><button class="back-button" id="quit-game">← Salir</button><div class="game-mode-label" id="game-mode-label">MODO CLÁSICO</div><div class="game-counter" id="game-counter">1 / 10</div></div>
+      <div class="game-progress"><span id="game-progress-bar"></span></div>
+      <div class="game-meta"><span class="category-chip" id="question-category">Categoría</span><span class="timer" id="timer">⏱ 20</span><span class="lives" id="lives"></span></div>
+      <div class="question-card"><div class="question-number" id="question-number">PREGUNTA 01</div><h2 id="question-text">Cargando pregunta...</h2><div id="question-extra"></div><div id="answers" class="answers-grid"></div><div id="feedback" class="feedback" aria-live="polite"></div><button class="btn btn-primary next-button" id="next-question" disabled>Siguiente pregunta →</button></div>
+      <p class="game-tip">💡 Lee con calma y confía en lo que sabes.</p>
+    </section>
+
+    <section id="result-view" class="view">
+      <div class="result-wrap"><div class="result-icon" id="result-icon">🏆</div><span class="eyebrow">DESAFÍO COMPLETADO</span><h1 id="result-title">¡Buen trabajo!</h1><p id="result-message">Sigue practicando para mejorar.</p>
+        <div class="result-score"><strong id="result-score">0</strong><span>PUNTOS</span></div>
+        <div class="result-stats"><div><strong id="result-correct">0</strong><small>Correctas</small></div><div><strong id="result-accuracy">0%</strong><small>Precisión</small></div><div><strong id="result-xp">+0</strong><small>XP ganada</small></div></div>
+        <div id="new-achievements" class="new-achievements"></div><div class="result-actions"><button class="btn btn-primary" id="play-again">Volver a jugar</button><button class="btn btn-secondary" data-view="home">Ir al inicio</button></div>
+      </div>
+    </section>
+
+    <section id="editor-view" class="view">
+      <div class="page-heading"><span class="eyebrow">CONTENIDO PERSONALIZADO</span><h1>Crear <span class="gradient-text">pregunta</span></h1><p>Agrega preguntas propias para ampliar el juego.</p></div>
+      <form id="question-form" class="editor-form">
+        <label>Pregunta<textarea id="new-question" required maxlength="220" placeholder="Escribe tu pregunta..." rows="3"></textarea></label>
+        <label>Categoría<select id="new-category"></select></label>
+        <label>Respuesta correcta<input id="new-correct" required maxlength="100" placeholder="Respuesta correcta"></label>
+        <label>Respuesta incorrecta 1<input class="wrong-answer" required maxlength="100" placeholder="Respuesta incorrecta"></label>
+        <label>Respuesta incorrecta 2<input class="wrong-answer" required maxlength="100" placeholder="Respuesta incorrecta"></label>
+        <label>Respuesta incorrecta 3<input class="wrong-answer" required maxlength="100" placeholder="Respuesta incorrecta"></label>
+        <div class="form-actions"><button type="button" class="btn btn-secondary" data-view="explore">Cancelar</button><button class="btn btn-primary" type="submit">Guardar pregunta</button></div>
+      </form>
+    </section>
+  </main>
+  <footer><span>✦ TRIVIA MASTER</span><span>Aprender también puede ser un juego.</span><span>Hecho para desafiar tu mente.</span></footer>
+  <div id="toast" class="toast"></div>
+  <script src="js/questions.js"></script><script src="js/storage.js"></script><script src="js/game.js"></script><script src="js/app.js"></script>
+</body>
+</html>

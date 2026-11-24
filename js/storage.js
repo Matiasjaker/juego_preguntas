@@ -1,5 +1,5 @@
 const STORAGE_KEY="triviaMasterSave_v1";
-const DEFAULT_STATE={xp:0,coins:0,games:0,correct:0,answered:0,bestScore:0,history:[],unlocked:[],dailyDate:"",dailyDone:false,customQuestions:[]};
+const DEFAULT_STATE={xp:0,coins:0,games:0,correct:0,answered:0,bestScore:0,history:[],unlocked:[],dailyDate:"",dailyDone:false,customQuestions:[],recent:[]};
 function loadState(){try{return {...DEFAULT_STATE,...JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}}catch{return {...DEFAULT_STATE}}}
 let playerState=loadState();
 function saveState(){localStorage.setItem(STORAGE_KEY,JSON.stringify(playerState))}
